@@ -560,7 +560,22 @@ main {
 
 .main_content5-seguir p {
     cursor: pointer;
-    
+}
+
+.path-img--black {
+    fill: #262626;
+}
+
+#path-img--black {
+    fill: #262626;
+}
+
+.path-img--red {
+    fill: red;
+}
+
+#path-img--red {
+    fill: red;
 }
 
 .footer_contain {
