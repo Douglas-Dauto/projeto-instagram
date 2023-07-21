@@ -8,25 +8,23 @@ curtir(true);
 function curtir(valor) {
     for(let indice in img) {
         if(valor) {
-            img[indice].removeEventListener('dblclick', curtirRed);
-            img[indice].addEventListener('dblclick', curtirRed);
-            svg[indice].addEventListener('click', curtirRed);
-
-            function curtirRed() {
-                path[indice].setAttribute('fill', 'red');
-                curtir(false);
-                indiceArmz = indice;
-            }
+            img[indice].addEventListener('dblclick', () => curtirRed(indice));
+            svg[indice].addEventListener('click', () => curtirRed(indice));
         } else if(valor === false && indiceArmz === indice) {
-            img[indice].removeEventListener('dblclick', curtirBlack);
-            img[indice].addEventListener('dblclick', curtirBlack);
-            svg[indice].addEventListener('click', curtirBlack);
-
-            function curtirBlack() {
-                path[indice].setAttribute('fill', 'black');
-                curtir(true);
-            }
+            img[indice].addEventListener('dblclick', () => curtirBlack(indice));
+            svg[indice].addEventListener('click', () => curtirBlack(indice));
         }
+    }
+
+    function curtirRed(indice) {
+        path[indice].setAttribute('fill', 'red');
+        indiceArmz = indice;
+        curtir(false);
+    }
+    
+    function curtirBlack(indice) {
+        path[indice].setAttribute('fill', 'black');
+        curtir(true);
     }
 }
 })();
