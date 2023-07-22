@@ -1,10 +1,9 @@
 (function() {
-const img = window.document.querySelectorAll('.main_content10-img-desenho>img');
-const svg = window.document.getElementsByClassName('svg-img');
-const path = window.document.getElementsByClassName('path-img');
-
 curtir();
 function curtir() {
+    const img = window.document.querySelectorAll('.main_content10-img-desenho>img');
+    const svg = window.document.getElementsByClassName('svg-img');
+    const path = window.document.getElementsByClassName('path-img');
     let indiceArmz, curtirValue = true;
 
     for(let indice = 0; indice < img.length; indice++) {
@@ -24,24 +23,26 @@ function curtir() {
     }
 }
 
-const container = window.document.getElementsByClassName('main_contain2')[0];
-const home = window.document.getElementById('icon--home');
-
-const moveHome = (value) => {
-    if(value) {
-        home.addEventListener('click', () => {
+home();
+function home() {
+    const container = window.document.getElementsByClassName('main_contain2')[0];
+    const home = window.document.getElementById('icon--home');
+    let valueMove = true;
+    
+    const moveHome = () => {
+        if(valueMove) {
             container.setAttribute('id', 'main_contain2');
-            moveHome(false);
-        });
-    } else {
-        home.addEventListener('click', () => {
+            valueMove = false;
+        } else {
             container.removeAttribute('id', 'main_contain2');
-            moveHome(true);
-        });
+            valueMove = true;
+        }
     }
+    
+    home.addEventListener('click', moveHome);
 }
-moveHome(true);
 
+// Código de referência:
 // abrirFecharMenuMobile(true);
 // function abrirFecharMenuMobile(valor) {
 //     if(valor) {
