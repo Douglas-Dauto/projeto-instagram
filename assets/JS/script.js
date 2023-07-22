@@ -24,6 +24,24 @@ function curtir() {
     }
 }
 
+const container = window.document.getElementsByClassName('main_contain2')[0];
+const home = window.document.getElementById('icon--home');
+
+const moveHome = (value) => {
+    if(value) {
+        home.addEventListener('click', () => {
+            container.setAttribute('id', 'main_contain2');
+            moveHome(false);
+        });
+    } else {
+        home.addEventListener('click', () => {
+            container.removeAttribute('id', 'main_contain2');
+            moveHome(true);
+        });
+    }
+}
+moveHome(true);
+
 // abrirFecharMenuMobile(true);
 // function abrirFecharMenuMobile(valor) {
 //     if(valor) {

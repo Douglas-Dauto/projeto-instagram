@@ -5,6 +5,7 @@
 
 body {
     background-color: #FAFAFA;
+    overflow-x: hidden;
 }
 
 header {
@@ -417,7 +418,12 @@ main {
     justify-self: flex-end;
     position: fixed;
     background-color: #FAFAFA;
-    
+    transition: all 1s;
+}
+
+#main_contain2 {
+    position: relative;
+    transform: translateX(50vw);
 }
 
 .main_content1 {
