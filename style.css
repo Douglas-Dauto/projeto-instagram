@@ -297,6 +297,14 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
+    transition: all .2s ease-in-out;
+    opacity: 1;
+}
+
+#main_content10-social {
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
 }
 
 .main_content10-social p {

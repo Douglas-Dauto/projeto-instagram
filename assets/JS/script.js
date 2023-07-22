@@ -44,6 +44,28 @@ function home() {
     home.addEventListener('click', moveHome);
 }
 
+const send = () => {
+    const sendPublication = window.document.getElementsByClassName('send-publication');
+    const contentSocial = window.document.getElementsByClassName('main_content10-social');
+    let controlContent = true, indiceArmz;
+
+    for(let indice = 0; indice < sendPublication.length; indice++) {
+        sendPublication[indice].addEventListener('click', () => moveContent(indice));
+    }
+
+    function moveContent(indice) {
+        if(controlContent || indiceArmz !== indice) {
+            contentSocial[indice].setAttribute('id', 'main_content10-social');
+            indiceArmz = indice;
+            controlContent = false;
+        } else if(controlContent === false || indiceArmz === indice) {
+            contentSocial[indice].removeAttribute('id', 'main_content10-social');
+            controlContent = true;
+        }
+    }
+}
+send();
+
 // Código de referência:
 // abrirFecharMenuMobile(true);
 // function abrirFecharMenuMobile(valor) {
