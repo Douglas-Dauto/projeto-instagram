@@ -32,9 +32,11 @@ function home() {
     const moveHome = () => {
         if(valueMove) {
             container.setAttribute('id', 'main_contain2');
+            home.setAttribute('fill', 'white');
             valueMove = false;
         } else {
             container.removeAttribute('id', 'main_contain2');
+            home.setAttribute('fill', '#262626');
             valueMove = true;
         }
     }
