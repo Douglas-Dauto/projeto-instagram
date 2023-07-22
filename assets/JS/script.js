@@ -12,7 +12,7 @@ function curtir() {
     }
 
     function curtirChange(indice) {
-        if(curtirValue) {
+        if(curtirValue || indiceArmz !== indice) {
             path[indice].setAttribute("class", "path-img path-img--red");
             indiceArmz = indice;
             curtirValue = false;
@@ -21,5 +21,29 @@ function curtir() {
             curtirValue = true;
         }
     }
+}
+
+abrirFecharMenuMobile(true);
+function abrirFecharMenuMobile(valor) {
+    if(valor) {
+        buttonMenuMobile.addEventListener('click', () => {
+            menuMobile.setAttribute('id', 'div-logo-lista-conjunto-087--return');
+            abrirFecharMenuMobile(false);
+        });
+    } else {
+        buttonMenuMobile.addEventListener('click', removerMenu);
+        menuMobile.addEventListener('click', removerMenu);
+        document.body.style.overflowY = 'hidden';
+
+        for(let i = 0; i < divPartMenuMobile.length; i++) {
+            divPartMenuMobile[i].addEventListener('click', removerMenu);
+        }
+    }
+}
+
+function removerMenu() {
+    menuMobile.removeAttribute('id', 'div-logo-lista-conjunto-087--return');
+    abrirFecharMenuMobile(true);
+    document.body.style.overflowY = 'scroll';
 }
 })();
