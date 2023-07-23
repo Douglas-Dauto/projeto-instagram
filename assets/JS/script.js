@@ -1,16 +1,13 @@
 (function() {
-curtir();
-function curtir() {
-    const img = window.document.querySelectorAll('.main_content10-img-desenho>img');
-    const svg = window.document.getElementsByClassName('svg-img');
-    const path = window.document.getElementsByClassName('path-img');
-    const arrayCurtirValue = [];
+const img = window.document.querySelectorAll('.main_content10-img-desenho>img');
+const svg = window.document.getElementsByClassName('svg-img');
+const path = window.document.getElementsByClassName('path-img');
+const arrayCurtirValue = [];  
 
-    for(let indice = 0; indice < img.length; indice++) {
-        arrayCurtirValue.push(true);
-        img[indice].addEventListener('dblclick', () => curtirChange(indice));
-        svg[indice].addEventListener('click', () => curtirChange(indice));
-    }
+for(let indice = 0; indice < img.length; indice++) {
+    arrayCurtirValue.push(true);
+    img[indice].addEventListener('dblclick', () => curtirChange(indice));
+    svg[indice].addEventListener('click', () => curtirChange(indice));
 }
 
 function curtirChange(indice) {
@@ -24,38 +21,32 @@ function curtirChange(indice) {
     }
 }
 
-home();
-function home() {
-    const container = window.document.getElementsByClassName('main_contain2')[0];
-    const home = window.document.getElementById('icon--home');
-    let valueMove = true;
+const container = window.document.getElementsByClassName('main_contain2')[0];
+const home = window.document.getElementById('icon--home');
+let valueMove = true;
     
-    const moveHome = () => {
-        if(valueMove) {
-            container.setAttribute('id', 'main_contain2');
-            home.setAttribute('fill', 'white');
-            valueMove = false;
-        } else {
-            container.removeAttribute('id', 'main_contain2');
-            home.setAttribute('fill', '#262626');
-            valueMove = true;
-        }
-    }
-    
-    home.addEventListener('click', moveHome);
-}
-
-const send = () => {
-    const sendPublication = window.document.getElementsByClassName('send-publication');
-    const contentSocial = window.document.getElementsByClassName('main_content10-social');
-    const arrayControlContent = [];
-
-    for(let indice = 0; indice < sendPublication.length; indice++) {
-        arrayControlContent.push(true);
-        sendPublication[indice].addEventListener('click', () => moveContent(indice));
+const moveHome = () => {
+    if(valueMove) {
+        container.setAttribute('id', 'main_contain2');
+        home.setAttribute('fill', 'white');
+        valueMove = false;
+    } else {
+        container.removeAttribute('id', 'main_contain2');
+        home.setAttribute('fill', '#262626');
+        valueMove = true;
     }
 }
-send();
+
+home.addEventListener('click', moveHome);
+
+const sendPublication = window.document.getElementsByClassName('send-publication');
+const contentSocial = window.document.getElementsByClassName('main_content10-social');
+const arrayControlContent = [];
+
+for(let indice = 0; indice < sendPublication.length; indice++) {
+    arrayControlContent.push(true);
+    sendPublication[indice].addEventListener('click', () => moveContent(indice));
+}
 
 function moveContent(indice) {
     if(arrayControlContent[indice]) {
