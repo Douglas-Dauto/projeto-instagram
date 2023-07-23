@@ -11,16 +11,16 @@ function curtir() {
         img[indice].addEventListener('dblclick', () => curtirChange(indice));
         svg[indice].addEventListener('click', () => curtirChange(indice));
     }
+}
 
-    function curtirChange(indice) {
-        if(arrayCurtirValue[indice]) {
-            path[indice].setAttribute("class", "path-img path-img--red");
-            indiceArmz = indice;
-            arrayCurtirValue[indice] = false;
-        } else if(arrayCurtirValue[indice] === false) {
-            path[indice].setAttribute("class", "path-img path-img--black");
-            arrayCurtirValue[indice] = true;
-        }
+function curtirChange(indice) {
+    if(arrayCurtirValue[indice]) {
+        path[indice].setAttribute("class", "path-img path-img--red");
+        indiceArmz = indice;
+        arrayCurtirValue[indice] = false;
+    } else if(arrayCurtirValue[indice] === false) {
+        path[indice].setAttribute("class", "path-img path-img--black");
+        arrayCurtirValue[indice] = true;
     }
 }
 
@@ -54,18 +54,18 @@ const send = () => {
         arrayControlContent.push(true);
         sendPublication[indice].addEventListener('click', () => moveContent(indice));
     }
-
-    function moveContent(indice) {
-        if(arrayControlContent[indice]) {
-            contentSocial[indice].setAttribute('id', 'main_content10-social');
-            arrayControlContent[indice] = false;
-        } else if(arrayControlContent[indice] === false) {
-            contentSocial[indice].removeAttribute('id', 'main_content10-social');
-           arrayControlContent[indice] = true;
-        }
-    }
 }
 send();
+
+function moveContent(indice) {
+    if(arrayControlContent[indice]) {
+        contentSocial[indice].setAttribute('id', 'main_content10-social');
+        arrayControlContent[indice] = false;
+    } else if(arrayControlContent[indice] === false) {
+        contentSocial[indice].removeAttribute('id', 'main_content10-social');
+       arrayControlContent[indice] = true;
+    }
+}
 
 // Código de referência:
 // abrirFecharMenuMobile(true);
