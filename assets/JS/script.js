@@ -4,21 +4,22 @@ function curtir() {
     const img = window.document.querySelectorAll('.main_content10-img-desenho>img');
     const svg = window.document.getElementsByClassName('svg-img');
     const path = window.document.getElementsByClassName('path-img');
-    let indiceArmz, curtirValue = true;
+    const arrayCurtirValue = [];
 
     for(let indice = 0; indice < img.length; indice++) {
+        arrayCurtirValue.push(true);
         img[indice].addEventListener('dblclick', () => curtirChange(indice));
         svg[indice].addEventListener('click', () => curtirChange(indice));
     }
 
     function curtirChange(indice) {
-        if(curtirValue || indiceArmz !== indice) {
+        if(arrayCurtirValue[indice]) {
             path[indice].setAttribute("class", "path-img path-img--red");
             indiceArmz = indice;
-            curtirValue = false;
-        } else if(curtirValue === false || indiceArmz === indice) {
+            arrayCurtirValue[indice] = false;
+        } else if(arrayCurtirValue[indice] === false) {
             path[indice].setAttribute("class", "path-img path-img--black");
-            curtirValue = true;
+            arrayCurtirValue[indice] = true;
         }
     }
 }
@@ -47,20 +48,20 @@ function home() {
 const send = () => {
     const sendPublication = window.document.getElementsByClassName('send-publication');
     const contentSocial = window.document.getElementsByClassName('main_content10-social');
-    let controlContent = true, indiceArmz;
+    const arrayControlContent = [];
 
     for(let indice = 0; indice < sendPublication.length; indice++) {
+        arrayControlContent.push(true);
         sendPublication[indice].addEventListener('click', () => moveContent(indice));
     }
 
     function moveContent(indice) {
-        if(controlContent || indiceArmz !== indice) {
+        if(arrayControlContent[indice]) {
             contentSocial[indice].setAttribute('id', 'main_content10-social');
-            indiceArmz = indice;
-            controlContent = false;
-        } else if(controlContent === false || indiceArmz === indice) {
+            arrayControlContent[indice] = false;
+        } else if(arrayControlContent[indice] === false) {
             contentSocial[indice].removeAttribute('id', 'main_content10-social');
-            controlContent = true;
+           arrayControlContent[indice] = true;
         }
     }
 }
