@@ -11,14 +11,13 @@ for(let indice = 0; indice < img.length; indice++) {
 }
 
 function curtirChange(indice) {
+    path[indice].setAttribute("class", arrayCurtirValue[indice] ? "path-img path-img--red" : "path-img path-img--black");
+
     if(arrayCurtirValue[indice]) {
-        path[indice].setAttribute("class", "path-img path-img--red");
         indiceArmz = indice;
-        arrayCurtirValue[indice] = false;
-    } else if(arrayCurtirValue[indice] === false) {
-        path[indice].setAttribute("class", "path-img path-img--black");
-        arrayCurtirValue[indice] = true;
     }
+
+    arrayCurtirValue[indice] = !arrayCurtirValue[indice];
 }
 
 const container = window.document.getElementsByClassName('main_contain2')[0];
@@ -29,11 +28,11 @@ const moveHome = () => {
     if(valueMove) {
         container.setAttribute('id', 'main_contain2');
         home.setAttribute('fill', 'white');
-        valueMove = false;
+        valueMove = !valueMove;
     } else {
         container.removeAttribute('id', 'main_contain2');
         home.setAttribute('fill', '#262626');
-        valueMove = true;
+        valueMove = !valueMove;
     }
 }
 
