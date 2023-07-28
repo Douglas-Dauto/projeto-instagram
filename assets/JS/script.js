@@ -2,7 +2,7 @@
 const img = window.document.querySelectorAll('.main_content10-img-desenho>img');
 const svg = window.document.getElementsByClassName('svg-img');
 const path = window.document.getElementsByClassName('path-img');
-const arrayCurtirValue = [];  
+const arrayCurtirValue = [];
 
 for(let indice = 0; indice < img.length; indice++) {
     arrayCurtirValue.push(true);
@@ -12,11 +12,6 @@ for(let indice = 0; indice < img.length; indice++) {
 
 function curtirChange(indice) {
     path[indice].setAttribute("class", arrayCurtirValue[indice] ? "path-img path-img--red" : "path-img path-img--black");
-
-    if(arrayCurtirValue[indice]) {
-        indiceArmz = indice;
-    }
-
     arrayCurtirValue[indice] = !arrayCurtirValue[indice];
 }
 
@@ -25,15 +20,10 @@ const home = window.document.getElementById('icon--home');
 let valueMove = true;
     
 const moveHome = () => {
-    if(valueMove) {
-        container.setAttribute('id', 'main_contain2');
-        home.setAttribute('fill', 'white');
-        valueMove = !valueMove;
-    } else {
-        container.removeAttribute('id', 'main_contain2');
-        home.setAttribute('fill', '#262626');
-        valueMove = !valueMove;
-    }
+    valueMove?container.setAttribute('id', 'main_contain2'):container.removeAttribute('id', 'main_contain2');
+    home.setAttribute('fill', valueMove?'white':'#262626');
+
+    valueMove = !valueMove;
 }
 
 home.addEventListener('click', moveHome);
